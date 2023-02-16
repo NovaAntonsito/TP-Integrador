@@ -3,11 +3,6 @@ package Config;
 import java.sql.*;
 
 public class DBConexion {
-    Connection con= DriverManager.getConnection(
-            "jdbc:mysql://localhost:3306/sonoo","root","root");
-    Statement stmt=con.createStatement();
-    ResultSet rs;
+//Conexion para la segunda parte del trabajo practico
 
-    public DBConexion() throws SQLException {
-    }
 }
