@@ -1,5 +1,5 @@
 package enums;
 
 public enum Resultado {
-    GANADOR,PERDEDOR,EMPATE
+    GANADOR,PERDEDOR,EMPATE;
 }

@@ -4,12 +4,19 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
+import java.util.List;
+
+
+
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Data
 public class Equipo {
-
     private String nombre;
-    private String descripcion;
-    private Pronostico pronostico;
+    private int golesEnTotal;
+
+    public void addGolestoEquipo(int i){
+        this.golesEnTotal += i;
+    }
 }

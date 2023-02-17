@@ -1,35 +1,37 @@
-import Config.CSVReader;
+import entities.Equipo;
+import entities.Partido;
+import entities.Rondas;
 
 import java.util.ArrayList;
-import java.util.List;
+
 
 public class main {
-    public static void main(String[] args) throws Exception {
-        //Ubicacion del CSV
-        CSVReader.read("C:\\Users\\Marcos Anton\\Desktop\\resultados.csv");
+    public static void main(String[] args) {
+        Equipo e1 = new Equipo("Argentina", 0);
+        Equipo e2 = new Equipo("Mexico", 0);
+        Equipo e3 = new Equipo("Polonia", 0);
+        Equipo e4 = new Equipo("Peru", 0);
 
-        List<String> palabras = new ArrayList<String>();
-        List<Integer> numeros = new ArrayList<Integer>();
+        Partido p1 = new Partido(e1, e2, 3, 1);
+        Partido p2 = new Partido(e3, e4, 1, 3);
+        Partido pFinal = new Partido(e2, e3, 1, 5);
 
-        for (String elemento : CSVReader.cant) {
-            // Dividir la string en palabras
-            String[] palabrasArray = elemento.split("\\s+");
+        System.out.println("Partido 1");
+        p1.ganadorDelpartido();
+        System.out.println("Partido 2");
+        p2.ganadorDelpartido();
+        System.out.println("Partido final");
+        pFinal.ganadorDelpartido();
 
-            for (String palabra : palabrasArray) {
-                // Verificar si la palabra es un número
-                if (palabra.matches("\\d+")) {
-                    numeros.add(Integer.parseInt(palabra));
-                } else {
-                    palabras.add(palabra);
-                }
-            }
-        }
+        Rondas ronda1 = new Rondas("Numero 1", new ArrayList<>());
 
-        System.out.println("Palabras: " + palabras);
-        System.out.println("Números: " + numeros);
+        ronda1.añadirPartidos(p1);
+        ronda1.añadirPartidos(p2);
+        ronda1.añadirPartidos(pFinal);
+
+        ronda1.golesEquipos();
+
     }
-
-
 }
 
 
