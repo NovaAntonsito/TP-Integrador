@@ -36,21 +36,11 @@ public class main {
         ronda1.addAdversarios(e3);
         ronda1.addAdversarios(e4);
 
-            switch (prompt){
-                case "Argentina":
-                    pr1.setEquipoElegido(e1);
-                    break;
-                case "Mexico":
-                    pr1.setEquipoElegido(e2);
-                    break;
-                case "Polonia":
-                    pr1.setEquipoElegido(e3);
-                    break;
-                case "Peru":
-                    pr1.setEquipoElegido(e4);
-                    break;
+        for (Equipo e:ronda1.getAdversarios()) {
+            if (e.getNombre().equals(prompt)){
+                pr1.setEquipoElegido(e);
             }
-
+        }
 
 
 
