@@ -15,7 +15,11 @@ public class Equipo  {
     private String nombre;
     private int golesEnTotal;
 
-    public void addGolestoEquipo(int i){
+    public void addGolesToEquipo(int i){
         this.golesEnTotal += i;
+    }
+
+    public void contarGoles(){
+        System.out.println(this.nombre+ " metio "+ this.golesEnTotal+ " goles en total");
     }
 }
