@@ -3,6 +3,7 @@ import entities.Partido;
 import entities.Pronostico;
 import entities.Rondas;
 
+import javax.swing.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -10,6 +11,7 @@ import java.util.Random;
 
 public class main {
     public static void main(String[] args) {
+        String prompt = JOptionPane.showInputDialog("Ingrese el equipo que va a ganar");
         int puntaje = 0 , i = 1, j = 0;
         Equipo e1 = new Equipo("Argentina", 0);
         Equipo e2 = new Equipo("Mexico", 0);
@@ -25,12 +27,6 @@ public class main {
         Pronostico pr1=new Pronostico();
 
 
-        List<Equipo> pronosticos=new ArrayList<Equipo>();
-        pronosticos.add(e1);
-        pronosticos.add(e3);
-        pronosticos.add(e3);
-        pr1.setEquipos(pronosticos);
-
         ronda1.addPartidos(p1);
         ronda1.addPartidos(p2);
         ronda1.addPartidos(pFinal);
@@ -40,9 +36,28 @@ public class main {
         ronda1.addAdversarios(e3);
         ronda1.addAdversarios(e4);
 
+            switch (prompt){
+                case "Argentina":
+                    pr1.setEquipoElegido(e1);
+                    break;
+                case "Mexico":
+                    pr1.setEquipoElegido(e2);
+                    break;
+                case "Polonia":
+                    pr1.setEquipoElegido(e3);
+                    break;
+                case "Peru":
+                    pr1.setEquipoElegido(e4);
+                    break;
+            }
+
+
+
+
+
         for (Partido p:ronda1.getPartidoList()) {
             System.out.println("---------Partido "+i+"---------");
-            if(pr1.getEquipos().get(j).equals(p.ganadorDelpartido())){
+            if (pr1.getEquipoElegido().equals(p.ganadorDelpartido())) {
                 puntaje++;
             }
             i++;

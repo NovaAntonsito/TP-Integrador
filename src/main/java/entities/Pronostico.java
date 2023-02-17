@@ -11,5 +11,5 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class Pronostico {
     
-    private List<Equipo> equipos;
+    private Equipo equipoElegido;
 }
