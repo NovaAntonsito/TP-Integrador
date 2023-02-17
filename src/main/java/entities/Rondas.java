@@ -9,14 +9,13 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Rondas {
+public class Rondas  {
 
     private String nrodeRonda;
     private List<Partido> partidoList;
 
-    public void añadirPartidos(Partido p){
+    public void addPartidos(Partido p){
         this.partidoList.add(p);
-        System.out.println("Partidos añadidos");
     }
     public void golesEquipos(){
         for (Partido partido:partidoList) {

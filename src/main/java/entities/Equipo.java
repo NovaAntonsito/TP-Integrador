@@ -8,11 +8,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-
 @Data
-@NoArgsConstructor
 @AllArgsConstructor
-public class Equipo {
+@NoArgsConstructor
+public class Equipo  {
     private String nombre;
     private int golesEnTotal;
 
