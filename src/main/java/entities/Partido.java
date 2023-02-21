@@ -5,38 +5,40 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.*;
+
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class Partido {
+    private int golesEquipo1 = (int) (Math.random() * 10), golesEquipo2 = (int) (Math.random() * 10);
 
-
-    private Equipo equipo1;
-    private Equipo equipo2;
-    private Equipo equipoGanador;
-    private int golesEquipo1;
-    private int golesEquipo2;
-
-public Equipo ganadorDelpartido(){
-    System.out.println(this.golesEquipo1 + " - " + this.golesEquipo2);
-    equipo1.addGolesToEquipo(this.golesEquipo1);
-    equipo2.addGolesToEquipo(this.golesEquipo2);
-    if(this.golesEquipo1 > this.golesEquipo2){
-        System.out.println(equipo1.getNombre()+" "+ Resultado.GANADOR);
-        System.out.println(equipo2.getNombre()+" "+ Resultado.PERDEDOR);
-        return equipo1;
-    } else if (this.golesEquipo1 == this.golesEquipo2) {
-        System.out.println(equipo1.getNombre()+ " AND "+ equipo2.getNombre()+ " "+ Resultado.EMPATE);
-        return null;
-
-    }else{
-        System.out.println(equipo2.getNombre()+" "+ Resultado.GANADOR);
-        System.out.println(equipo1.getNombre()+" "+ Resultado.PERDEDOR);
-        return equipo2;
+    /*
+     *@params Equipo1, Equipo2
+     * Recibe los dos goles y simula un partido, cambia los resultados de cada equipo y
+     * en caso de perder les quita la autorizacion para seguir jugando, en caso de empate
+     * hay un retry
+     * */
+    public void simularPartido(Equipo e1, Equipo e2){
+        if(this.golesEquipo1 > this.golesEquipo2){
+            e2.setAutorizacion(false);
+            e1.setResultadoEnPartido(Resultado.GANADOR);
+            e2.setResultadoEnPartido(Resultado.PERDEDOR);
+        } else if (this.golesEquipo1 == this.golesEquipo2) {
+            System.out.println("Desempate en proceso");
+            e1.setResultadoEnPartido(Resultado.EMPATE);
+            e2.setResultadoEnPartido(Resultado.EMPATE);
+            this.golesEquipo1 = (int)(Math.random()*10);
+            this.golesEquipo2 = (int)(Math.random()*10);
+            simularPartido(e1,e2);
+        }else{
+            e1.setAutorizacion(false);
+            e1.setResultadoEnPartido(Resultado.PERDEDOR);
+            e2.setResultadoEnPartido(Resultado.GANADOR);
+        }
+        System.out.println(e1.getName()+ " "+this.golesEquipo1+ " - "+e2.getName()+ " "+ this.golesEquipo2);
+        e1.sumarGoles(this.golesEquipo1);
+        e2.sumarGoles(this.golesEquipo2);
     }
-
-}
-
-
 }

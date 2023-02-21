@@ -1,65 +1,63 @@
 import entities.Equipo;
+import entities.Grupos;
 import entities.Partido;
-import entities.Pronostico;
 import entities.Rondas;
 
-import javax.swing.*;
 import java.util.ArrayList;
-import java.util.List;
+import java.util.Arrays;
 import java.util.Random;
-
 
 public class main {
     public static void main(String[] args) {
-        String prompt = JOptionPane.showInputDialog("Ingrese el equipo que va a ganar");
-        int puntaje = 0 , i = 1, j = 0;
-        Equipo e1 = new Equipo("Argentina", 0);
-        Equipo e2 = new Equipo("Mexico", 0);
-        Equipo e3 = new Equipo("Polonia", 0);
-        Equipo e4 = new Equipo("Peru", 0);
-
-        Partido p1 = new Partido(e1, e2,null, (int) (Math.random()*7+0), (int) (Math.random()*7+0));
-        Partido p2 = new Partido(e4, e3,null, (int) (Math.random()*7+0), (int) (Math.random()*7+0));
-        Partido pFinal = new Partido(e2, e3,null, (int) (Math.random()*7+0), (int) (Math.random()*7+0));
-
-        Rondas ronda1 = new Rondas("Numero 1", new ArrayList<>(),new ArrayList<>());
-
-        Pronostico pr1=new Pronostico();
+        int i = 1;
+        Equipo e1 = new Equipo();
+        Equipo e2 = new Equipo();
+        Equipo e3 = new Equipo();
+        Equipo e4 = new Equipo();
 
 
-        ronda1.addPartidos(p1);
-        ronda1.addPartidos(p2);
-        ronda1.addPartidos(pFinal);
+        Grupos g1 = new Grupos(new ArrayList<>(Arrays.asList(e1,e2,e3,e4)));
 
-        ronda1.addAdversarios(e1);
-        ronda1.addAdversarios(e2);
-        ronda1.addAdversarios(e3);
-        ronda1.addAdversarios(e4);
+        String[] mejoresPaises = {"Bélgica",
+                "Francia",
+                "Brasil",
+                "Inglaterra",
+                "Portugal",
+                "España",
+                "Argentina"};
 
-        for (Equipo e:ronda1.getAdversarios()) {
-            if (e.getNombre().equals(prompt)){
-                pr1.setEquipoElegido(e);
-            }
-        }
-
-
-
-
-        for (Partido p:ronda1.getPartidoList()) {
-            System.out.println("---------Partido "+i+"---------");
-            if (pr1.getEquipoElegido().equals(p.ganadorDelpartido())) {
-                puntaje++;
-            }
+        /*
+        * Solo recorro la lista y le asigno nombres aleatorios dependiendo del array de nombres
+        * (WIP)
+        * */
+        for (Equipo e: g1.getEquipoList()) {
+            int namesRandomIndex = (int)(Math.random()* mejoresPaises.length);
+            e.setName("Equipo "+i);
             i++;
-            j++;
-        }
-        System.out.println("---------------------------------------");
-
-        for (Equipo e: ronda1.getAdversarios()) {
-            e.contarGoles();
         }
 
-        System.out.println("Tu puntaje es: "+puntaje);
+        Partido partido = new Partido();
+
+/*
+* Recorrido principal del programa
+* Mientras haya 1 elemento en la lista va a seguir haciendo partidos,
+* removiendolos y poniendo otros equipos en la lista
+* */
+       while (g1.getEquipoList().size() != 1){
+           Equipo[] randomTeams = g1.randomTeams(g1.getEquipoList());
+           partido.simularPartido(randomTeams[0],randomTeams[1]);
+           for (Equipo e:randomTeams) {
+                g1.removeEquipoToGrupo(g1.getEquipoList());
+           }
+       }
+
+        Rondas ganadorRonda = new Rondas("Ronda 1", g1.getEquipoList().get(0));
+
+        System.out.println(ganadorRonda);
+
+
+
+
 
     }
 }
