@@ -5,7 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.*;
+
 
 
 @Data
@@ -22,6 +22,8 @@ public class Partido {
      * */
     public Equipo simularPartido(Equipo e1, Equipo e2){
         System.out.println(e1.getName()+ " "+this.golesEquipo1+ " - "+e2.getName()+ " "+ this.golesEquipo2);
+        this.golesEquipo1 = (int)(Math.random()*10);
+        this.golesEquipo2 = (int)(Math.random()*10);
         e1.sumarGoles(this.golesEquipo1);
         e2.sumarGoles(this.golesEquipo2);
         if(this.golesEquipo1 > this.golesEquipo2){
@@ -34,8 +36,6 @@ public class Partido {
             System.out.println("Desempate en proceso");
             e1.setResultadoEnPartido(Resultado.EMPATE);
             e2.setResultadoEnPartido(Resultado.EMPATE);
-            this.golesEquipo1 = (int)(Math.random()*10);
-            this.golesEquipo2 = (int)(Math.random()*10);
             simularPartido(e1,e2);
         }else{
             e1.setAutorizacion(false);
