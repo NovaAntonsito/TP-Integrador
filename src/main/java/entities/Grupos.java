@@ -6,6 +6,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
@@ -49,4 +50,5 @@ public class Grupos {
         Equipo equipoVisitante = e.get(index2);
         return new Equipo[]{equipoLocal, equipoVisitante};
     }
+
 }

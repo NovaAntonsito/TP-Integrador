@@ -4,56 +4,69 @@ import entities.Partido;
 import entities.Rondas;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Random;
 
 public class main {
     public static void main(String[] args) {
-        int i = 1;
-        Equipo e1 = new Equipo();
-        Equipo e2 = new Equipo();
-        Equipo e3 = new Equipo();
-        Equipo e4 = new Equipo();
+        Rondas rondas=new Rondas();
+        rondas.setNroRonda(3);
 
+        ArrayList<Equipo> listaEquipos1=new ArrayList<>();
+        ArrayList<Equipo> listaEquipos2=new ArrayList<>();
 
-        Grupos g1 = new Grupos(new ArrayList<>(Arrays.asList(e1,e2,e3,e4)));
+        ArrayList<String> participantes = new ArrayList<>();
+        participantes.add("Bélgica");
+        participantes.add("Francia");
+        participantes.add("Portugal");
+        participantes.add("España");
+        participantes.add("Italia");
+        participantes.add("Argentina");
+        participantes.add("Alemania");
+        participantes.add("Brasil");
 
-        String[] mejoresPaises = {"Bélgica",
-                "Francia",
-                "Brasil",
-                "Inglaterra",
-                "Portugal",
-                "España",
-                "Argentina"};
-
-        /*
-        * Solo recorro la lista y le asigno nombres aleatorios dependiendo del array de nombres
-        * (WIP)
-        * */
-        for (Equipo e: g1.getEquipoList()) {
-            int namesRandomIndex = (int)(Math.random()* mejoresPaises.length);
-            e.setName("Equipo "+i);
-            i++;
-        }
+        ArrayList<String> copia=new ArrayList<>(participantes);
+        rondas.armadorDeGrupos(listaEquipos1,listaEquipos2);
+        Grupos g1 = new Grupos(listaEquipos1);
+        Grupos g2 = new Grupos(listaEquipos2);
+        participantes.addAll(copia);
 
         Partido partido = new Partido();
+        for (Equipo e: g1.getEquipoList()) {
+            int namesRandomIndex = (int)(Math.random()* participantes.size());
+            e.setName(participantes.get(namesRandomIndex));
+            participantes.remove(namesRandomIndex);
+        }
+        for (Equipo e: g2.getEquipoList()) {
+            int namesRandomIndex = (int)(Math.random()* participantes.size());
+            e.setName(participantes.get(namesRandomIndex));
+            participantes.remove(namesRandomIndex);
+        }
+        for(int i=0;i<rondas.getNroRonda();i++){
+            System.out.println("Ronda "+(i+1));
+            for(int j=0;j<g1.getEquipoList().size();j+=2){
+                if(g1.getEquipoList().size()>1||g2.getEquipoList().size()>1){
+                    partido.simularPartido(g1.getEquipoList().get(j),g1.getEquipoList().get(j+1));
+                    partido.simularPartido(g2.getEquipoList().get(j),g2.getEquipoList().get(j+1));
+                }else{
+                    partido.simularPartido(g1.getEquipoList().get(0),g2.getEquipoList().get(0));
+                    g1.getEquipoList().removeIf(equipo -> !equipo.isAutorizacion());
+                    g2.getEquipoList().removeIf(equipo -> !equipo.isAutorizacion());
+                    System.out.println("El ganador del torneo es: "+
+                            (g1.getEquipoList().isEmpty()?g2.getEquipoList().get(0).getName():g1.getEquipoList().get(0).getName()));
 
-/*
-* Recorrido principal del programa
-* Mientras haya 1 elemento en la lista va a seguir haciendo partidos,
-* removiendolos y poniendo otros equipos en la lista
-* */
-       while (g1.getEquipoList().size() != 1){
-           Equipo[] randomTeams = g1.randomTeams(g1.getEquipoList());
-           partido.simularPartido(randomTeams[0],randomTeams[1]);
-           for (Equipo e:randomTeams) {
-                g1.removeEquipoToGrupo(g1.getEquipoList());
-           }
-       }
+                }
+                
+                }
+            g1.getEquipoList().removeIf(equipo -> !equipo.isAutorizacion());
+            g2.getEquipoList().removeIf(equipo -> !equipo.isAutorizacion());
 
-        Rondas ganadorRonda = new Rondas("Ronda 1", g1.getEquipoList().get(0));
+    }
 
-        System.out.println(ganadorRonda);
+
+
+
+
+
+
 
 
 
