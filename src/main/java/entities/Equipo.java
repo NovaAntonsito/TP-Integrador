@@ -16,6 +16,9 @@ public class Equipo  {
     private Resultado resultadoEnPartido;
     private int cantGoles;
 
+    public Equipo(String name) {
+        this.name=name;
+    }
 
     //Suma todos los goles metido en todos los partidos
     public void sumarGoles(int i){

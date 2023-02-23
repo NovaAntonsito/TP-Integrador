@@ -15,7 +15,7 @@ public class Rondas  {
     private int nroRonda;
     private Equipo equipoGanador;
 
-    public void armadorDeGrupos(ArrayList<Equipo> listaEquipos1,ArrayList<Equipo> listaEquipos2){
+    /*public void armadorDeGrupos(ArrayList<Equipo> listaEquipos1,ArrayList<Equipo> listaEquipos2){
         for(int i=0;i<Math.pow(2,this.nroRonda);i++){
             if(i<Math.pow(2,this.nroRonda)/2){
                 listaEquipos1.add(new Equipo());
@@ -23,5 +23,5 @@ public class Rondas  {
                 listaEquipos2.add(new Equipo());
             }
         }
-    }
+    }*/
 }
