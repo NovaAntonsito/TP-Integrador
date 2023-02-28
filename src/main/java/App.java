@@ -59,16 +59,22 @@ public class App {
 
         //Ajusto el proceso
         System.out.println("Ronda 2");
+        //Menciono la llave y luego juego cada semifinal
         System.out.println(g1.getRama());
         partido.simularPartido(g1.getEquipoList().get(0),g1.getEquipoList().get(1));
         System.out.println(g2.getRama());
         partido.simularPartido(g2.getEquipoList().get(0),g2.getEquipoList().get(1));
 
+        //Remuevo equipos perdedores de las listas
+        //Como son semifinales hay 2 equipos por lista, me fijo si el primero no esta autorizado
+        //De ser asi lo remuevo
         if(!g1.getEquipoList().get(0).isAutorizacion()){
             g1.getEquipoList().remove(0);
+            //Sino remuevo al segundo
         }else{
             g1.getEquipoList().remove(1);
         }
+        //Proceso analogo
         if(!g2.getEquipoList().get(0).isAutorizacion()){
             g2.getEquipoList().remove(0);
         }else{
