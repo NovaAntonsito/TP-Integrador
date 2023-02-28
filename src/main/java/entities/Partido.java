@@ -27,22 +27,28 @@ public class Partido {
 
         e1.sumarGoles(this.golesEquipo1);
         e2.sumarGoles(this.golesEquipo2);
+        /* En caso de que la cantidad de goles del equipo 1 sea mayor a la cantidad de goles del equipo 2
+         * le quita la posibilidad al equipo 2 de seguir jugando y actualiza sus resultados, luego retorna
+         * al equipo ganador para trabajar con el
+         */
         if(this.golesEquipo1 > this.golesEquipo2){
             e2.setAutorizacion(false);
             e1.setResultadoEnPartido(Resultado.GANADOR);
             e2.setResultadoEnPartido(Resultado.PERDEDOR);
-            //System.out.println(e2.getName()+": ELIMINADO");
             return e1;
+            /* En caso de haber empate suelta un mensaje de que hubo un empate,
+             * luego llama nuevamente a la funcion para generar un nuevo resultado
+             */
         } else if (this.golesEquipo1 == this.golesEquipo2) {
             System.out.println("Desempate en proceso");
             e1.setResultadoEnPartido(Resultado.EMPATE);
             e2.setResultadoEnPartido(Resultado.EMPATE);
             simularPartido(e1,e2);
+            /* Análogo al primer caso pero con el segundo equipo siendo el ganador*/
         }else{
             e1.setAutorizacion(false);
             e1.setResultadoEnPartido(Resultado.PERDEDOR);
             e2.setResultadoEnPartido(Resultado.GANADOR);
-            //System.out.println(e1.getName()+": ELIMINADO");
             return e2;
         }
        return null;

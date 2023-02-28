@@ -15,6 +15,10 @@ import java.util.Random;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Grupos {
+    private String rama;
     private List<Equipo> equipoList;
 
+    public Grupos(List<Equipo> equipoList){
+        this.equipoList=equipoList;
+    }
 }

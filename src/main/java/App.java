@@ -5,7 +5,7 @@ import entities.Rondas;
 
 import java.util.ArrayList;
 
-public class main {
+public class App {
     public static void main(String[] args) {
         Rondas rondas=new Rondas();
         rondas.setNroRonda(3);
@@ -16,21 +16,25 @@ public class main {
         listaEquiposPrimeraRonda1.add(new Equipo("Belgica"));
         listaEquiposPrimeraRonda1.add(new Equipo("Francia"));
         listaEquiposPrimeraRonda1.add(new Equipo("Portugal"));
-        listaEquiposPrimeraRonda1.add(new Equipo("España"));
+        listaEquiposPrimeraRonda1.add(new Equipo("Argentina"));
         listaEquiposPrimeraRonda2.add(new Equipo("Italia"));
-        listaEquiposPrimeraRonda2.add(new Equipo("Argentina"));
+        listaEquiposPrimeraRonda2.add(new Equipo("España"));
         listaEquiposPrimeraRonda2.add(new Equipo("Alemania"));
         listaEquiposPrimeraRonda2.add(new Equipo("Brasil"));
 
 
-        Grupos g1 = new Grupos(listaEquiposPrimeraRonda1);
-        Grupos g2 = new Grupos(listaEquiposPrimeraRonda2);
+        Grupos g1 = new Grupos("Llave Izquierda",listaEquiposPrimeraRonda1);
+        Grupos g2 = new Grupos("Llave Derecha",listaEquiposPrimeraRonda2);
 
         Partido partido = new Partido();
 
         System.out.println("Ronda 1");
+        System.out.println(g1.getRama());
         for(int i=0;i<g1.getEquipoList().size();i+=2){
             partido.simularPartido(g1.getEquipoList().get(i),g1.getEquipoList().get(i+1));
+        }
+        System.out.println(g2.getRama());
+        for(int i=0;i<g1.getEquipoList().size();i+=2){
             partido.simularPartido(g2.getEquipoList().get(i),g2.getEquipoList().get(i+1));
         }
 
@@ -49,11 +53,15 @@ public class main {
         }
         //Seteo las nuevas listas en los grupos
         g1.setEquipoList(listaEquiposSegundaRonda1);
-        g1.setEquipoList(listaEquiposSegundaRonda2);
+
+        g2.setEquipoList(listaEquiposSegundaRonda2);
+
 
         //Ajusto el proceso
         System.out.println("Ronda 2");
+        System.out.println(g1.getRama());
         partido.simularPartido(g1.getEquipoList().get(0),g1.getEquipoList().get(1));
+        System.out.println(g2.getRama());
         partido.simularPartido(g2.getEquipoList().get(0),g2.getEquipoList().get(1));
 
         if(!g1.getEquipoList().get(0).isAutorizacion()){
@@ -68,7 +76,7 @@ public class main {
         }
         //Ronda final
         System.out.println("La gran final");
-        System.out.println("El campeon del mundo es: "+partido.simularPartido(g1.getEquipoList().get(0),g2.getEquipoList().get(0)).getName());
+        System.out.println("El campeon del mundo es: "+partido.simularPartido(g2.getEquipoList().get(0),g1.getEquipoList().get(0)).getName());
 
     }
 }
