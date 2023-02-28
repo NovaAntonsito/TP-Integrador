@@ -1,20 +1,40 @@
 package entities;
 
 import enums.Resultado;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 
 
 
 
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
+
 public class Partido {
-    private int golesEquipo1=1 ;
-    private int golesEquipo2=2 ;
+    private int golesEquipo1=1;
+    private int golesEquipo2=2;
 
+
+
+    public Partido() {
+    }
+
+    public Partido(int golesEquipo1, int golesEquipo2) {
+        this.golesEquipo1 = golesEquipo1;
+        this.golesEquipo2 = golesEquipo2;
+    }
+
+    public int getGolesEquipo1() {
+        return golesEquipo1;
+    }
+
+    public void setGolesEquipo1(int golesEquipo1) {
+        this.golesEquipo1 = golesEquipo1;
+    }
+
+    public int getGolesEquipo2() {
+        return golesEquipo2;
+    }
+
+    public void setGolesEquipo2(int golesEquipo2) {
+        this.golesEquipo2 = golesEquipo2;
+    }
     /*
      *@params Equipo1, Equipo2
      * Recibe los dos goles y simula un partido, cambia los resultados de cada equipo y
@@ -22,9 +42,7 @@ public class Partido {
      * hay un retry
      * */
     public Equipo simularPartido(Equipo e1, Equipo e2){
-
         System.out.println(e1.getName()+ " "+this.golesEquipo1+ " - "+e2.getName()+ " "+ this.golesEquipo2);
-
         e1.sumarGoles(this.golesEquipo1);
         e2.sumarGoles(this.golesEquipo2);
         if(this.golesEquipo1 > this.golesEquipo2){
