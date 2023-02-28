@@ -9,7 +9,7 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-public class main {
+public class App {
     public static void main(String[] args) throws SQLException {
 
         Rondas rondas=new Rondas();
@@ -30,7 +30,11 @@ public class main {
         Equipo e7 = new Equipo("Alemania");
         Equipo e8 = new Equipo("Brasil");
 
-        String consulta = "INSERT INTO partido (nombre) VALUES (?)";
+        //Para que esto funcione tiene que estar como autoincremental la primary key
+        //Onda hay que pasar la tabla ya hecha, que se llame campeones para guardar los
+        //campeones de cada torneo que se juegue, suponiendo que en un futuro variara cuando
+        //se le agregue un factor de random al programa
+        String consulta = "INSERT INTO campeones (nombre) VALUES (?)";
         PreparedStatement statement = conexion.prepareStatement(consulta);
 
         listaEquiposPrimeraRonda1.add(e1);
@@ -70,7 +74,7 @@ public class main {
         }
         //Seteo las nuevas listas en los grupos
         g1.setEquipoList(listaEquiposSegundaRonda1);
-        g1.setEquipoList(listaEquiposSegundaRonda2);
+        g2.setEquipoList(listaEquiposSegundaRonda2);
 
         //Ajusto el proceso
         System.out.println("Ronda 2");
@@ -89,8 +93,9 @@ public class main {
             g2.getEquipoList().remove(1);
         }
         //Ronda final
-        Equipo eWinner = partido.simularPartido(g1.getEquipoList().get(0),g2.getEquipoList().get(0));
+
         System.out.println("La gran final");
+        Equipo eWinner = partido.simularPartido(g1.getEquipoList().get(0),g2.getEquipoList().get(0));
         System.out.println("El campeon del mundo es: "+ eWinner.getName());
 
         statement.setString(1, eWinner.getName());

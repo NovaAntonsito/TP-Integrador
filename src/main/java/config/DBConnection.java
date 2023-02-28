@@ -10,7 +10,7 @@ public class DBConnection {
     public static Connection obtenerConexion() {
         String url = "jdbc:mysql://localhost:3306/integrador";
         String usuario = "root";
-        String contrasena = "123";
+        String contrasena = "root";
 
         try {
             if (conexion == null || conexion.isClosed()) {
