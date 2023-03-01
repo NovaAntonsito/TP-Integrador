@@ -12,6 +12,8 @@ public class Grupos {
     public Grupos() {
     }
 
+
+
     public Grupos(List<Equipo> equipoList) {
         this.equipoList = equipoList;
     }

@@ -3,3 +3,19 @@
 pom.xml,4\4\442292b8a7efeabbe4cc176709b833b1792140ec
 R
 "src/main/java/enums/Resultado.java,3\5\35d53b2eb4f48433d8d6be738952d4fd996f78cc
+9
+	README.md,8\e\8ec9a00bfd09b3190ac6b22251dbb1aa95a0579d
+S
+#src/main/java/entities/Partido.java,0\9\097fdb798f440dba0f00df8809b4013749e24ac1
+V
+&src/main/java/config/DBConnection.java,0\d\0d75cf20276b93b14b4a1d900463a2ea37a293d5
+S
+#src/main/java/entities/Jugador.java,9\c\9cb99da4c84e0ad25fa2ac1758aadfcebead9be4
+R
+"src/main/java/entities/Equipo.java,6\3\63e15c0cfd4f8376ba1a0c2c981b8051720879c5
+R
+"src/main/java/entities/Grupos.java,e\d\ed6d3d7380ccd685de554815bee52474b9f67612
+R
+"src/main/java/entities/Rondas.java,e\a\ea3d5a394ac81f328bf384302506cfebed8ae75c
+F
+src/main/java/App.java,6\7\67512e2f04487cca15d6699055f74a51de1a9eb4
