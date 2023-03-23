@@ -4,7 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a8273e41-fc50-4437-b87c-6be9d75f9659" name="Changes" comment="" />
+    <list default="true" id="a8273e41-fc50-4437-b87c-6be9d75f9659" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/entities/Jugador.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/entities/Grupos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/Grupos.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/entities/Rondas.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/Rondas.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -13,8 +20,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Enum" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -52,6 +59,7 @@
       <updated>1676558515558</updated>
       <workItem from="1676558517806" duration="2335000" />
       <workItem from="1677006700912" duration="4746000" />
+      <workItem from="1677676071670" duration="2206000" />
     </task>
     <servers />
   </component>

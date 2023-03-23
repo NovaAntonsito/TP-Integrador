@@ -1,14 +1,18 @@
-import entities.Equipo;
-import entities.Grupos;
-import entities.Partido;
-import entities.Rondas;
+import config.DBConnection;
+import entities.*;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class App {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws SQLException {
+
         Rondas rondas=new Rondas();
         rondas.setNroRonda(3);
+
+        Connection conexion = DBConnection.obtenerConexion();
 
         //Hardcodeamos las listas de equipos
         ArrayList<Equipo> listaEquiposPrimeraRonda1=new ArrayList<>();
@@ -16,74 +20,45 @@ public class App {
         listaEquiposPrimeraRonda1.add(new Equipo("Belgica"));
         listaEquiposPrimeraRonda1.add(new Equipo("Francia"));
         listaEquiposPrimeraRonda1.add(new Equipo("Portugal"));
-        listaEquiposPrimeraRonda1.add(new Equipo("Argentina"));
         listaEquiposPrimeraRonda2.add(new Equipo("Italia"));
-        listaEquiposPrimeraRonda2.add(new Equipo("España"));
+        listaEquiposPrimeraRonda1.add(new Equipo("Brasil"));
         listaEquiposPrimeraRonda2.add(new Equipo("Alemania"));
-        listaEquiposPrimeraRonda2.add(new Equipo("Brasil"));
+        listaEquiposPrimeraRonda2.add(new Equipo("Argelia"));
+        listaEquiposPrimeraRonda2.add(new Equipo("Argentina"));
 
+        //Supongamos que por consola elegimos un equipo, pero aca vamos a hardcodear esa seleccion
+        Jugador jugador=new Jugador(listaEquiposPrimeraRonda2.get(3));
 
-        Grupos g1 = new Grupos("Llave Izquierda",listaEquiposPrimeraRonda1);
-        Grupos g2 = new Grupos("Llave Derecha",listaEquiposPrimeraRonda2);
+        //Para que esto funcione tiene que estar como autoincremental la primary key
+        //Onda hay que pasar la tabla ya hecha, que se llame campeones para guardar los
+        //campeones de cada torneo que se juegue, suponiendo que en un futuro variara cuando
+        //se le agregue un factor de random al programa
+        String consulta = "INSERT INTO campeones (nombre) VALUES (?)";
+        PreparedStatement statement = conexion.prepareStatement(consulta);
 
+        Grupos g1 = new Grupos(listaEquiposPrimeraRonda1);
+        Grupos g2 = new Grupos(listaEquiposPrimeraRonda2);
         Partido partido = new Partido();
 
-        System.out.println("Ronda 1");
-        System.out.println(g1.getRama());
-        for(int i=0;i<g1.getEquipoList().size();i+=2){
-            partido.simularPartido(g1.getEquipoList().get(i),g1.getEquipoList().get(i+1));
-        }
-        System.out.println(g2.getRama());
-        for(int i=0;i<g1.getEquipoList().size();i+=2){
-            partido.simularPartido(g2.getEquipoList().get(i),g2.getEquipoList().get(i+1));
-        }
+        rondas.primeraRonda(g1,g2,partido);
+        jugador.calcularPuntaje(g2.getEquipoList());
 
-        // Creo una lista nueva para los participantes de cada grupo que pasaron de ronda
-        ArrayList<Equipo> listaEquiposSegundaRonda1=new ArrayList<>();
-        ArrayList<Equipo> listaEquiposSegundaRonda2=new ArrayList<>();
+        rondas.segundaRonda(g1,g2,partido);
+        jugador.calcularPuntaje(g2.getEquipoList());
 
-        // Los agrego a las listas
-        for(int i=0;i<g1.getEquipoList().size();i++){
-            if(g1.getEquipoList().get(i).isAutorizacion()){
-                listaEquiposSegundaRonda1.add(g1.getEquipoList().get(i));
-            }
-            if(g2.getEquipoList().get(i).isAutorizacion()){
-                listaEquiposSegundaRonda2.add(g2.getEquipoList().get(i));
-            }
-        }
-        //Seteo las nuevas listas en los grupos
-        g1.setEquipoList(listaEquiposSegundaRonda1);
+        Equipo eWinner=rondas.rondaFinal(g1,g2,partido);
+        jugador.calcularPuntaje(g2.getEquipoList());
+        //Muestro quien gano
+        System.out.println("El campeon del mundo es: "+ eWinner.getName());
+        System.out.println("Tu puntaje es: "+jugador.getPuntaje());
 
-        g2.setEquipoList(listaEquiposSegundaRonda2);
+        //Persisto al ganador
+        statement.setString(1, eWinner.getName());
+        statement.executeUpdate();
 
+        statement.close();
 
-        //Ajusto el proceso
-        System.out.println("Ronda 2");
-        //Menciono la llave y luego juego cada semifinal
-        System.out.println(g1.getRama());
-        partido.simularPartido(g1.getEquipoList().get(0),g1.getEquipoList().get(1));
-        System.out.println(g2.getRama());
-        partido.simularPartido(g2.getEquipoList().get(0),g2.getEquipoList().get(1));
-
-        //Remuevo equipos perdedores de las listas
-        //Como son semifinales hay 2 equipos por lista, me fijo si el primero no esta autorizado
-        //De ser asi lo remuevo
-        if(!g1.getEquipoList().get(0).isAutorizacion()){
-            g1.getEquipoList().remove(0);
-            //Sino remuevo al segundo
-        }else{
-            g1.getEquipoList().remove(1);
-        }
-        //Proceso analogo
-        if(!g2.getEquipoList().get(0).isAutorizacion()){
-            g2.getEquipoList().remove(0);
-        }else{
-            g2.getEquipoList().remove(1);
-        }
-        //Ronda final
-        System.out.println("La gran final");
-        System.out.println("El campeon del mundo es: "+partido.simularPartido(g2.getEquipoList().get(0),g1.getEquipoList().get(0)).getName());
-
+        DBConnection.cerrarConexion();
     }
 }
 
