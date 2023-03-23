@@ -25,14 +25,7 @@ public class App {
 
         //Supongamos que por consola elegimos un equipo, pero aca vamos a hardcodear esa seleccion
         Jugador jugador=new Jugador(listaEquiposPrimeraRonda2.get(3));
-
-        //Para que esto funcione tiene que estar como autoincremental la primary key
-        //Onda hay que pasar la tabla ya hecha, que se llame campeones para guardar los
-        //campeones de cada torneo que se juegue, suponiendo que en un futuro variara cuando
-        //se le agregue un factor de random al programa
-        String consulta = "INSERT INTO campeones (nombre) VALUES (?)";
-        PreparedStatement statement = conexion.prepareStatement(consulta);
-
+        
         Grupos g1 = new Grupos(listaEquiposPrimeraRonda1);
         Grupos g2 = new Grupos(listaEquiposPrimeraRonda2);
         Partido partido = new Partido();
