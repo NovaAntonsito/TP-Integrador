@@ -1,4 +1,3 @@
-import config.DBConnection;
 import entities.*;
 
 import java.sql.Connection;
@@ -11,8 +10,6 @@ public class App {
 
         Rondas rondas=new Rondas();
         rondas.setNroRonda(3);
-
-        Connection conexion = DBConnection.obtenerConexion();
 
         //Hardcodeamos las listas de equipos
         ArrayList<Equipo> listaEquiposPrimeraRonda1=new ArrayList<>();
@@ -52,13 +49,7 @@ public class App {
         System.out.println("El campeon del mundo es: "+ eWinner.getName());
         System.out.println("Tu puntaje es: "+jugador.getPuntaje());
 
-        //Persisto al ganador
-        statement.setString(1, eWinner.getName());
-        statement.executeUpdate();
 
-        statement.close();
-
-        DBConnection.cerrarConexion();
     }
 }
 
