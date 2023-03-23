@@ -1,7 +1,5 @@
 import entities.*;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
@@ -31,13 +29,13 @@ public class App {
         Partido partido = new Partido();
 
         rondas.primeraRonda(g1,g2,partido);
-        jugador.calcularPuntaje(g2.getEquipoList());
+        jugador.calcularPuntaje(g2.getListaEquipo());
 
         rondas.segundaRonda(g1,g2,partido);
-        jugador.calcularPuntaje(g2.getEquipoList());
+        jugador.calcularPuntaje(g2.getListaEquipo());
 
         Equipo eWinner=rondas.rondaFinal(g1,g2,partido);
-        jugador.calcularPuntaje(g2.getEquipoList());
+        jugador.calcularPuntaje(g2.getListaEquipo());
         //Muestro quien gano
         System.out.println("El campeon del mundo es: "+ eWinner.getName());
         System.out.println("Tu puntaje es: "+jugador.getPuntaje());

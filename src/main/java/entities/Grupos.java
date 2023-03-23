@@ -6,23 +6,20 @@ import java.util.List;
 
 public class Grupos {
 
-    private List<Equipo> equipoList;
-
+    private List<Equipo> listaEquipo;
 
     public Grupos() {
     }
 
-
-
-    public Grupos(List<Equipo> equipoList) {
-        this.equipoList = equipoList;
+    public Grupos(List<Equipo> listaEquipo) {
+        this.listaEquipo = listaEquipo;
     }
 
-    public List<Equipo> getEquipoList() {
-        return equipoList;
+    public List<Equipo> getListaEquipo() {
+        return listaEquipo;
     }
 
-    public void setEquipoList(List<Equipo> equipoList) {
-        this.equipoList = equipoList;
+    public void setListaEquipo(List<Equipo> listaEquipo) {
+        this.listaEquipo = listaEquipo;
     }
 }

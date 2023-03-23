@@ -1,0 +1,51 @@
+@startuml
+class entities.Grupos {
+- List<Equipo> equipoList
++ List<Equipo> getEquipoList()
++ void setEquipoList(List<Equipo>)
+}
+class entities.Equipo {
+- String name
+- boolean autorizacion
+- Resultado resultadoEnPartido
+- int cantGoles
++ String getName()
++ void setName(String)
++ boolean isAutorizacion()
++ void setAutorizacion(boolean)
++ Resultado getResultadoEnPartido()
++ void setResultadoEnPartido(Resultado)
++ int getCantGoles()
++ void setCantGoles(int)
++ void sumarGoles(int)
+}
+class entities.Jugador {
+~ Equipo seleccionado
+~ int puntaje
++ void calcularPuntaje(List<Equipo>)
++ Equipo getSeleccionado()
++ void setSeleccionado(Equipo)
++ int getPuntaje()
++ void setPuntaje(int)
+}
+class entities.Rondas {
+- int nroRonda
+- Equipo equipoGanador
++ void primeraRonda(Grupos,Grupos,Partido)
++ void segundaRonda(Grupos,Grupos,Partido)
++ Equipo rondaFinal(Grupos,Grupos,Partido)
++ int getNroRonda()
++ void setNroRonda(int)
++ Equipo getEquipoGanador()
++ void setEquipoGanador(Equipo)
+}
+class entities.Partido {
+- int golesEquipo1
+- int golesEquipo2
++ int getGolesEquipo1()
++ void setGolesEquipo1(int)
++ int getGolesEquipo2()
++ void setGolesEquipo2(int)
++ Equipo simularPartido(Equipo,Equipo)
+}
+@enduml

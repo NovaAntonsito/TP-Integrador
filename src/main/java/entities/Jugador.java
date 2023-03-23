@@ -4,8 +4,8 @@ import java.util.List;
 
 public class Jugador {
 
-    Equipo seleccionado;
-    int puntaje;
+    private Equipo seleccionado;
+    private int puntaje;
 
     public Jugador() {
     }

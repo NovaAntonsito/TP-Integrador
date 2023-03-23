@@ -14,54 +14,54 @@ public class Rondas  {
     public Rondas() {
     }
 
-    public void primeraRonda(Grupos g1,Grupos g2, Partido partido){
+    public void primeraRonda(Grupos g1, Grupos g2, Partido partido){
         System.out.println("Ronda 1");
-        for(int i=0;i<g1.getEquipoList().size();i+=2){
-            partido.simularPartido(g1.getEquipoList().get(i),g1.getEquipoList().get(i+1));
-            partido.simularPartido(g2.getEquipoList().get(i),g2.getEquipoList().get(i+1));
+        for(int i = 0; i<g1.getListaEquipo().size(); i+=2){
+            partido.simularPartido(g1.getListaEquipo().get(i),g1.getListaEquipo().get(i+1));
+            partido.simularPartido(g2.getListaEquipo().get(i),g2.getListaEquipo().get(i+1));
         }
         // Creo una lista nueva para los participantes de cada grupo que pasaron de ronda
         ArrayList<Equipo> listaEquiposSegundaRonda1=new ArrayList<>();
         ArrayList<Equipo> listaEquiposSegundaRonda2=new ArrayList<>();
 
         // Los agrego a las listas
-        for(int i=0;i<g1.getEquipoList().size();i++){
-            if(g1.getEquipoList().get(i).isAutorizacion()){
-                listaEquiposSegundaRonda1.add(g1.getEquipoList().get(i));
+        for(int i = 0; i<g1.getListaEquipo().size(); i++){
+            if(g1.getListaEquipo().get(i).isAutorizacion()){
+                listaEquiposSegundaRonda1.add(g1.getListaEquipo().get(i));
             }
-            if(g2.getEquipoList().get(i).isAutorizacion()){
-                listaEquiposSegundaRonda2.add(g2.getEquipoList().get(i));
+            if(g2.getListaEquipo().get(i).isAutorizacion()){
+                listaEquiposSegundaRonda2.add(g2.getListaEquipo().get(i));
             }
         }
         //Seteo las nuevas listas en los grupos
-        g1.setEquipoList(listaEquiposSegundaRonda1);
-        g2.setEquipoList(listaEquiposSegundaRonda2);
+        g1.setListaEquipo(listaEquiposSegundaRonda1);
+        g2.setListaEquipo(listaEquiposSegundaRonda2);
     }
 
     // Se encarga de la logica de la segunda ronda
     public void segundaRonda(Grupos g1,Grupos g2,Partido partido){
         System.out.println("Ronda 2");
         //Simula los partidos
-        partido.simularPartido(g1.getEquipoList().get(0),g1.getEquipoList().get(1));
-        partido.simularPartido(g2.getEquipoList().get(0),g2.getEquipoList().get(1));
+        partido.simularPartido(g1.getListaEquipo().get(0),g1.getListaEquipo().get(1));
+        partido.simularPartido(g2.getListaEquipo().get(0),g2.getListaEquipo().get(1));
 
         //Remueve a quien no este autorizado para jugar, debido a que perdio.
         //Basicamente en este caso deja un solo equipo en la lista
-        if(!g1.getEquipoList().get(0).isAutorizacion()){
-            g1.getEquipoList().remove(0);
+        if(!g1.getListaEquipo().get(0).isAutorizacion()){
+            g1.getListaEquipo().remove(0);
         }else{
-            g1.getEquipoList().remove(1);
+            g1.getListaEquipo().remove(1);
         }
-        if(!g2.getEquipoList().get(0).isAutorizacion()){
-            g2.getEquipoList().remove(0);
+        if(!g2.getListaEquipo().get(0).isAutorizacion()){
+            g2.getListaEquipo().remove(0);
         }else{
-            g2.getEquipoList().remove(1);
+            g2.getListaEquipo().remove(1);
         }
     }
     // Se juega la ronda final y retorna al ganador
     public Equipo rondaFinal(Grupos g1,Grupos g2,Partido partido){
         System.out.println("La gran final");
-        return partido.simularPartido(g1.getEquipoList().get(0),g2.getEquipoList().get(0));
+        return partido.simularPartido(g1.getListaEquipo().get(0),g2.getListaEquipo().get(0));
     }
     public int getNroRonda() {
         return nroRonda;
