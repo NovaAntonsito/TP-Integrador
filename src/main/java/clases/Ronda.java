@@ -9,16 +9,6 @@ public class Ronda {
     private int cantidadDeEquiposEnRonda;
     private int cantidadDeEquiposEnLLave;
 
-    public Equipo getEquipoGanador() {
-        return equipoGanador;
-    }
-
-    public void setEquipoGanador(Equipo equipoGanador) {
-        this.equipoGanador = equipoGanador;
-    }
-
-    private Equipo equipoGanador;
-
     public Ronda() {
     }
 
@@ -116,6 +106,5 @@ public class Ronda {
                 equipo.getNombre(),
                 "Ganador del torneo",JOptionPane.INFORMATION_MESSAGE);
 
-        this.equipoGanador = equipo;
     }
 }

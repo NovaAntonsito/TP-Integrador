@@ -5,13 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a8273e41-fc50-4437-b87c-6be9d75f9659" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/jpa-buddy.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Config/DBConnection.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/4/4/442292b8a7efeabbe4cc176709b833b1792140ec" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/clases/Partido.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/clases/Partido.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/clases/Ronda.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/clases/Ronda.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/App.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/entities/Equipo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/entities/Grupos.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/entities/Jugador.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/entities/Partido.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/entities/Rondas.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/enums/Resultado.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,11 +54,6 @@
     "project.structure.side.proportion": "0.0",
     "run.code.analysis.last.selected.profile": "pProject Default",
     "settings.editor.selected.configurable": "preferences.pluginManager"
-  },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mysql"
-    ]
   }
 }]]></component>
   <component name="RunManager">
@@ -93,7 +91,6 @@
       <workItem from="1680486959716" duration="1934000" />
       <workItem from="1680540465591" duration="30000" />
       <workItem from="1680635569654" duration="274000" />
-      <workItem from="1680639658503" duration="5095000" />
     </task>
     <servers />
   </component>
