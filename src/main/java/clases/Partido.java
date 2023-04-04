@@ -7,8 +7,8 @@ import javax.swing.*;
 
 public class Partido {
 
-    private int golesEquipoLocal=2;
-    private int golesEquipoVisitante=3;
+    private int golesEquipoLocal= (int) (Math.random() * 8);
+    private int golesEquipoVisitante= (int) (Math.random() * 8);
 
     public Partido() {
     }
