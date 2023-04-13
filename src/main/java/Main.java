@@ -3,6 +3,7 @@ import clases.Equipo;
 import clases.Jugador;
 import clases.Llave;
 import clases.Ronda;
+import interfazUtiles.InterfazUtils;
 
 import javax.swing.*;
 import java.util.ArrayList;
@@ -10,14 +11,68 @@ import java.util.ArrayList;
 public class Main {
     public static void main(String[] args) {
         bienvenidaAlTorneo();
-        ArrayList<Equipo> listaDeEquipos = crearListaDeEquipos();
-        agregarEquipos(listaDeEquipos);
-        Jugador jugador = elegirEquipo(listaDeEquipos);
-        Llave llaveDerecha = crearLlaveDerecha(listaDeEquipos);
-        Llave llaveIzquierda = crearLlaveIzquierda(listaDeEquipos);
-        crearRondas(llaveIzquierda, llaveDerecha,jugador);
-        resultadoDelTorneo(jugador);
+        menu();
     }
+
+    public static void menu() {
+        JOptionPane.showMessageDialog(null, "Bienvenido al Menu\nSelecciona una de las siguientes opciones:");
+
+        // Se inicializan las variables que se utilizarán durante la ejecución del programa.
+        boolean salir = true;
+        ArrayList<Equipo> listaDeEquipos = null;
+        Jugador jugador = null;
+        Llave llaveDerecha = null;
+        Llave llaveIzquierda = null;
+        Ronda ronda = null;
+
+        do {
+            try {
+                // Se utiliza la función opciones() de la clase InterfazUtils para obtener la opción seleccionada por el usuario.
+                switch (InterfazUtils.opciones()) {
+                    case "1":
+                        listaDeEquipos = crearListaDeEquipos();
+                        break;
+                    case "2":
+                        agregarEquipos(listaDeEquipos);
+                        break;
+                    case "3":
+                        jugador = elegirEquipo(listaDeEquipos);
+                        break;
+                    case "4":
+                        llaveDerecha = crearLlaveDerecha(listaDeEquipos);
+                        break;
+                    case "5":
+                        llaveIzquierda = crearLlaveIzquierda(listaDeEquipos);
+                        break;
+                    case "6":
+                        ronda=crearRondas();
+                        break;
+                    case "7":
+                        jugarTorneo(ronda, llaveIzquierda, llaveDerecha, jugador);
+                        break;
+                    case "8":
+                        resultadoDelTorneo(jugador);
+                        break;
+                    case "0":
+                        JOptionPane.showMessageDialog(null, "Saliendo", "Salida", JOptionPane.CLOSED_OPTION);
+                        salir = false;
+                        break;
+                    default:
+                        JOptionPane.showInputDialog("Ingreso invalido");
+                }
+                // Se capturan las excepciones para mostrar mensajes de error al usuario.
+            } catch (NullPointerException e) {
+                JOptionPane.showMessageDialog(null, "Ocurrio un error:" + e.getMessage(),
+                        "Error de nulidad", JOptionPane.ERROR_MESSAGE);
+            } catch (NumberFormatException e) {
+                JOptionPane.showMessageDialog(null, "Ocurrio un error:" + e.getMessage(),
+                        "Error de parseo", JOptionPane.ERROR_MESSAGE);
+            }catch (Exception e){
+                JOptionPane.showMessageDialog(null, "Ocurrio un error:" + e.getMessage(),
+                        "Error", JOptionPane.ERROR_MESSAGE); }
+        } while (salir);
+    }
+
 
     public static void bienvenidaAlTorneo() {
         JOptionPane.showMessageDialog(null, "Bienvenidos al Torneo", "Bienvenida", JOptionPane.INFORMATION_MESSAGE);
@@ -31,19 +86,19 @@ public class Main {
 
     public static void agregarEquipos(ArrayList<Equipo> listaDeEquipos) {
         // Mostramos un cuadro de diálogo para preguntar al usuario si quiere cargar los equipos manualmente o automáticamente
-        String opcion="";
-        do{
+        String opcion = "";
+        do {
             opcion = JOptionPane.showInputDialog(null,
                     "Bienvenido a la carga de equipos\n¿Desea cargar los equipos manualmente? SI | NO",
                     "Carga de equipos", JOptionPane.INFORMATION_MESSAGE);
-            if(opcion==null || opcion.equals("")){
-                JOptionPane.showMessageDialog(null,"Ingrese un valor en la casilla","Error",JOptionPane.ERROR_MESSAGE);
+            if (opcion == null || opcion.equals("")) {
+                JOptionPane.showMessageDialog(null, "Ingrese un valor en la casilla", "Error", JOptionPane.ERROR_MESSAGE);
             }
-        }while(opcion==null || opcion.equals(""));
+        } while (opcion == null || opcion.equals(""));
 
         // Si el usuario selecciona "si", cargamos los equipos manualmente
         if (opcion.equalsIgnoreCase("si")) {
-            cargarEquipoManualmente(listaDeEquipos);
+            InterfazUtils.cargarEquipoManualmente(listaDeEquipos);
         }
         // Si el usuario selecciona "no", cargamos los equipos automáticamente
         else {
@@ -58,7 +113,7 @@ public class Main {
         }
     }
 
-    public static Jugador elegirEquipo(ArrayList<Equipo> listaDeEquipos) {
+    public static Jugador elegirEquipo(ArrayList<Equipo> listaDeEquipos) throws Exception {
         // Creamos una nueva instancia del objeto Jugador
         Jugador jugador = new Jugador();
         // Llamamos al método elegirEquipo() del objeto jugador, pasándole como argumento la lista de equipos almacenada en listaDeEquipos
@@ -80,17 +135,21 @@ public class Main {
         return llaveIzquierda;
     }
 
-    public static Ronda crearRondas(Llave llaveIzquierda, Llave llaveDerecha, Jugador jugador) {
-        // Crea una Ronda y utiliza las llaves de la izquierda y la derecha para armar los cuartos de final,
+    public static Ronda crearRondas() {
+        // Crea una Ronda
+        return new Ronda();
+    }
+
+    public static void jugarTorneo(Ronda ronda, Llave llaveIzquierda, Llave llaveDerecha, Jugador jugador) {
+        // utiliza las llaves de la izquierda y la derecha para armar los cuartos de final,
         // luego llama al método "sumarPuntos" del jugador y repite el proceso para las semifinales y la final.
-        Ronda ronda = new Ronda();
         ronda.cuartosDeFinal(llaveIzquierda, llaveDerecha);
         jugador.sumarPuntos();
         ronda.semifinal(llaveIzquierda, llaveDerecha);
         jugador.sumarPuntos();
         ronda.finalDelTorneo(llaveIzquierda, llaveDerecha);
         jugador.sumarPuntos();
-        return ronda;
+
     }
 
     public static void resultadoDelTorneo(Jugador jugador) {
@@ -99,17 +158,5 @@ public class Main {
                         + " por elegir al equipo: " + jugador.getEquipoSeleccionado().getNombre(), "Nombre",
                 JOptionPane.INFORMATION_MESSAGE);
     }
-    public static void cargarEquipoManualmente(ArrayList<Equipo> listaDeEquipos){
-        String nombreEquipo=null;
-        for (int i = 0; i < 8; i++) {
-            do{
-                nombreEquipo = JOptionPane.showInputDialog(null, "Ingrese el nombre del equipo",
-                        "Carga de equipos", JOptionPane.INFORMATION_MESSAGE);
-                if(nombreEquipo==null || nombreEquipo.equals("")){
-                    JOptionPane.showMessageDialog(null,"Ingrese un valor en la casilla","Error",JOptionPane.ERROR_MESSAGE);
-                }
-            }while(nombreEquipo==null || nombreEquipo.equals(""));
-            listaDeEquipos.add(new Equipo(nombreEquipo));
-        }
-    }
+
 }
