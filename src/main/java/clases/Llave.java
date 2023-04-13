@@ -16,6 +16,10 @@ public class Llave {
         this.nombreDeLaLlave = nombreDeLaLlave;
     }
 
+    public Llave(String nombreDeLaLlave) {
+        this.nombreDeLaLlave = nombreDeLaLlave;
+    }
+
     public List<Equipo> getEquiposDeLaLlave() {
         return equiposDeLaLlave;
     }
@@ -32,11 +36,16 @@ public class Llave {
         this.nombreDeLaLlave = nombreDeLaLlave;
     }
 
-    public void armarLlave(List<Equipo> listaGeneral,int indiceInicial){
-        List<Equipo> equiposLLave=new ArrayList<>();
-        for(int i=indiceInicial; i<indiceInicial+4;i++){
+    public void armarLlave(List<Equipo> listaGeneral, int indiceInicial) {
+        // Se crea una lista para almacenar los equipos de la llave
+        List<Equipo> equiposLLave = new ArrayList<>();
+        // Se itera desde el índice inicial hasta el índice inicial + 4
+        // y se agrega cada equipo a la lista de equipos de la llave
+        for (int i = indiceInicial; i < indiceInicial + 4; i++) {
             equiposLLave.add(listaGeneral.get(i));
         }
-        this.equiposDeLaLlave=equiposLLave;
+        // Se asigna la lista de equipos de la llave al atributo equiposDeLaLlave
+        this.equiposDeLaLlave = equiposLLave;
     }
+
 }

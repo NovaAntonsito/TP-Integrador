@@ -32,22 +32,38 @@ public class Jugador {
         this.puntaje = puntaje;
     }
 
-    public void elegirEquipo(List<Equipo> listaEquipos){
-        String listaDeLosEquiposEnMensaje="Seleccione su equipo:  \n";
-        for(int i=0;i<listaEquipos.size();i++){
-            listaDeLosEquiposEnMensaje+=(i+1)+". "+listaEquipos.get(i).getNombre()+"\n";
+    // Método para que el jugador elija su equipo favorito
+    public void elegirEquipo(List<Equipo> listaEquipos) {
+        String listaDeLosEquiposEnMensaje = "Seleccione su equipo:  \n";
+        // Crear una lista de los equipos disponibles
+        for (int i = 0; i < listaEquipos.size(); i++) {
+            listaDeLosEquiposEnMensaje += (i + 1) + ". " + listaEquipos.get(i).getNombre() + "\n";
         }
-        JOptionPane.showMessageDialog(null,listaDeLosEquiposEnMensaje,"Seleccion de Equipo",JOptionPane.INFORMATION_MESSAGE);
 
-        int indiceEquipo=0;
-        do{
-            indiceEquipo=Integer.parseInt(JOptionPane.showInputDialog(null,"Ingrese el indice del equipo que quiere seleccionar:","Ingreso valor",JOptionPane.INFORMATION_MESSAGE))-1;
-        }while(indiceEquipo<1||indiceEquipo>8);
-        JOptionPane.showMessageDialog(null,"EL EQUIPO DE ELEGISTE ES: "+listaEquipos.get(indiceEquipo).getNombre());
-        this.equipoSeleccionado=listaEquipos.get(indiceEquipo);
+        // Mostrar los equipos disponibles en un cuadro de diálogo
+        JOptionPane.showMessageDialog(null, listaDeLosEquiposEnMensaje, "Seleccion de Equipo", JOptionPane.INFORMATION_MESSAGE);
+
+        String indiceEquipo = null;
+        int indiceEquipoParsed = 0;
+        // Pedir al jugador que ingrese el índice del equipo que elige hasta que se ingrese un valor válido
+        do {
+            indiceEquipo = JOptionPane.showInputDialog(null, "Ingrese el indice del equipo",
+                    "Seleccion de equipo", JOptionPane.INFORMATION_MESSAGE);
+            if (indiceEquipo == null || indiceEquipo.equals("")) {
+                JOptionPane.showMessageDialog(null, "Ingrese un valor en la casilla", "Error", JOptionPane.ERROR_MESSAGE);
+            } else {
+                indiceEquipoParsed = Integer.parseInt(indiceEquipo);
+            }
+
+        } while (indiceEquipoParsed < 1 || indiceEquipoParsed > 8);
+        // Mostrar al jugador el equipo que ha elegido y guardarlo como el equipo seleccionado del jugador
+        JOptionPane.showMessageDialog(null, "EL EQUIPO DE ELEGISTE ES: " + listaEquipos.get(indiceEquipoParsed).getNombre());
+        this.equipoSeleccionado = listaEquipos.get(indiceEquipoParsed);
     }
-    public void sumarPuntos(){
-        if(equipoSeleccionado.isAutorizacion()){
+
+    // Método para sumar puntos al jugador si el equipo seleccionado tiene autorización
+    public void sumarPuntos() {
+        if (equipoSeleccionado.isAutorizacion()) {
             puntaje++;
         }
     }
