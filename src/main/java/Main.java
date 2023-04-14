@@ -29,7 +29,7 @@ public class Main {
             // Se utiliza la función opciones() de la clase InterfazUtils para obtener la opción seleccionada por el usuario.
             switch (InterfazUtils.opciones()) {
                 case "1":
-                    listaDeEquipos = crearListaDeEquipos();
+                    listaDeEquipos = crearListaDeEquipos(listaDeEquipos);
                     break;
                 case "2":
                     agregarEquipos(listaDeEquipos);
@@ -57,7 +57,7 @@ public class Main {
                     salir = false;
                     break;
                 default:
-                    JOptionPane.showInputDialog("Ingreso invalido");
+                    JOptionPane.showMessageDialog(null,"Ingreso invalido");
             }
 
         } while (salir);
@@ -68,13 +68,25 @@ public class Main {
         JOptionPane.showMessageDialog(null, "Bienvenidos al Torneo", "Bienvenida", JOptionPane.INFORMATION_MESSAGE);
     }
 
-    public static ArrayList<Equipo> crearListaDeEquipos() {
-        // Creamos una nueva instancia de un ArrayList vacío
-        ArrayList<Equipo> listaDeEquipos = new ArrayList<>();
-        return listaDeEquipos;
+    public static ArrayList<Equipo> crearListaDeEquipos(ArrayList<Equipo> listaDeEquipos) {
+
+        if (listaDeEquipos == null) {
+            return new ArrayList<Equipo>();
+        } else {
+            JOptionPane.showMessageDialog(null,"Ya hay una lista creada","Informacion",JOptionPane.INFORMATION_MESSAGE);
+            return listaDeEquipos;
+        }
+
     }
 
     public static void agregarEquipos(ArrayList<Equipo> listaDeEquipos) {
+        if(!
+                listaDeEquipos.isEmpty()){
+            String cargaDeEquipos=JOptionPane.showInputDialog(null,"Ya hay una lista cargada\n ¿Desea cargarla nuevamente? SI | NO","Lista Cargada",JOptionPane.INFORMATION_MESSAGE);
+            if(cargaDeEquipos.equalsIgnoreCase("SI")){
+                listaDeEquipos.clear();
+            }
+        }
         // Mostramos un cuadro de diálogo para preguntar al usuario si quiere cargar los equipos manualmente o automáticamente
         String opcion = "";
         do {
