@@ -1,0 +1,21 @@
+
+‹
+java:S1319G"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(¦êÜ—ùÿÿÿÿ
+„
+java:S1319M"nThe type of "listaDeEquipos" should be an interface such as "List" rather than the implementation "ArrayList".(Õñáå
+„
+java:S1319j"nThe type of "listaDeEquipos" should be an interface such as "List" rather than the implementation "ArrayList".(ğĞø±
+‰
+java:S1319r"nThe type of "listaDeEquipos" should be an interface such as "List" rather than the implementation "ArrayList".(÷ıêêşÿÿÿÿ
+‰
+java:S1319y"nThe type of "listaDeEquipos" should be an interface such as "List" rather than the implementation "ArrayList".(˜çè¶şÿÿÿÿ
+|
+java:S1488I"fImmediately return this expression instead of assigning it to the temporary variable "listaDeEquipos".(ùß­¿
+0
+java:S1220""Move this file to a named package.
+m
+java:S22595"R"NullPointerException" will be thrown when invoking method "resultadoDelTorneo()".(ì¿Ûıÿÿÿÿ
+i
+java:S2259#"N"NullPointerException" will be thrown when invoking method "agregarEquipos()".(Çç³«üÿÿÿÿ
+a
+java:S22592"K"NullPointerException" will be thrown when invoking method "jugarTorneo()".(ÒìÜå

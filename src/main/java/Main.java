@@ -26,50 +26,40 @@ public class Main {
         Ronda ronda = null;
 
         do {
-            try {
-                // Se utiliza la función opciones() de la clase InterfazUtils para obtener la opción seleccionada por el usuario.
-                switch (InterfazUtils.opciones()) {
-                    case "1":
-                        listaDeEquipos = crearListaDeEquipos();
-                        break;
-                    case "2":
-                        agregarEquipos(listaDeEquipos);
-                        break;
-                    case "3":
-                        jugador = elegirEquipo(listaDeEquipos);
-                        break;
-                    case "4":
-                        llaveDerecha = crearLlaveDerecha(listaDeEquipos);
-                        break;
-                    case "5":
-                        llaveIzquierda = crearLlaveIzquierda(listaDeEquipos);
-                        break;
-                    case "6":
-                        ronda=crearRondas();
-                        break;
-                    case "7":
-                        jugarTorneo(ronda, llaveIzquierda, llaveDerecha, jugador);
-                        break;
-                    case "8":
-                        resultadoDelTorneo(jugador);
-                        break;
-                    case "0":
-                        JOptionPane.showMessageDialog(null, "Saliendo", "Salida", JOptionPane.CLOSED_OPTION);
-                        salir = false;
-                        break;
-                    default:
-                        JOptionPane.showInputDialog("Ingreso invalido");
-                }
-                // Se capturan las excepciones para mostrar mensajes de error al usuario.
-            } catch (NullPointerException e) {
-                JOptionPane.showMessageDialog(null, "Ocurrio un error:" + e.getMessage(),
-                        "Error de nulidad", JOptionPane.ERROR_MESSAGE);
-            } catch (NumberFormatException e) {
-                JOptionPane.showMessageDialog(null, "Ocurrio un error:" + e.getMessage(),
-                        "Error de parseo", JOptionPane.ERROR_MESSAGE);
-            }catch (Exception e){
-                JOptionPane.showMessageDialog(null, "Ocurrio un error:" + e.getMessage(),
-                        "Error", JOptionPane.ERROR_MESSAGE); }
+            // Se utiliza la función opciones() de la clase InterfazUtils para obtener la opción seleccionada por el usuario.
+            switch (InterfazUtils.opciones()) {
+                case "1":
+                    listaDeEquipos = crearListaDeEquipos();
+                    break;
+                case "2":
+                    agregarEquipos(listaDeEquipos);
+                    break;
+                case "3":
+                    jugador = elegirEquipo(listaDeEquipos);
+                    break;
+                case "4":
+                    llaveDerecha = crearLlaveDerecha(listaDeEquipos);
+                    break;
+                case "5":
+                    llaveIzquierda = crearLlaveIzquierda(listaDeEquipos);
+                    break;
+                case "6":
+                    ronda = crearRondas();
+                    break;
+                case "7":
+                    jugarTorneo(ronda, llaveIzquierda, llaveDerecha, jugador);
+                    break;
+                case "8":
+                    resultadoDelTorneo(jugador);
+                    break;
+                case "0":
+                    JOptionPane.showMessageDialog(null, "Saliendo", "Salida", JOptionPane.CLOSED_OPTION);
+                    salir = false;
+                    break;
+                default:
+                    JOptionPane.showInputDialog("Ingreso invalido");
+            }
+
         } while (salir);
     }
 
@@ -113,7 +103,7 @@ public class Main {
         }
     }
 
-    public static Jugador elegirEquipo(ArrayList<Equipo> listaDeEquipos) throws Exception {
+    public static Jugador elegirEquipo(ArrayList<Equipo> listaDeEquipos) {
         // Creamos una nueva instancia del objeto Jugador
         Jugador jugador = new Jugador();
         // Llamamos al método elegirEquipo() del objeto jugador, pasándole como argumento la lista de equipos almacenada en listaDeEquipos

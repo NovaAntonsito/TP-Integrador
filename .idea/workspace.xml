@@ -5,13 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a8273e41-fc50-4437-b87c-6be9d75f9659" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/4/4/442292b8a7efeabbe4cc176709b833b1792140ec" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/f/0/f05e5fe798abaecea7a818d1c142a64a653d3adb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/clases/Jugador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/clases/Jugador.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/interfazUtiles/InterfazUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/interfazUtiles/InterfazUtils.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,7 +84,8 @@
       <workItem from="1680486959716" duration="1934000" />
       <workItem from="1680540465591" duration="30000" />
       <workItem from="1680635569654" duration="274000" />
-      <workItem from="1681394864073" duration="4055000" />
+      <workItem from="1681394864073" duration="4069000" />
+      <workItem from="1681419389197" duration="550000" />
     </task>
     <servers />
   </component>

@@ -33,10 +33,8 @@ public class Jugador {
     }
 
     // Método para que el jugador elija su equipo favorito
-    public void elegirEquipo(List<Equipo> listaEquipos) throws Exception {
-        if (listaEquipos.size()!=8){
-            throw new Exception("La lista no tiene equipos suficientes");
-        }
+    public void elegirEquipo(List<Equipo> listaEquipos)  {
+
         String listaDeLosEquiposEnMensaje = "Seleccione su equipo:  \n";
         // Crear una lista de los equipos disponibles
         for (int i = 0; i < listaEquipos.size(); i++) {
