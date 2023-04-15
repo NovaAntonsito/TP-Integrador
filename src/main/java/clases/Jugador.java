@@ -56,7 +56,7 @@ public class Jugador {
                 indiceEquipoParsed = Integer.parseInt(indiceEquipo)-1;
             }
 
-        } while (indiceEquipoParsed < 1 || indiceEquipoParsed > 8);
+        } while (indiceEquipoParsed < 0 || indiceEquipoParsed >= 8);
         // Mostrar al jugador el equipo que ha elegido y guardarlo como el equipo seleccionado del jugador
         JOptionPane.showMessageDialog(null, "EL EQUIPO DE ELEGISTE ES: " + listaEquipos.get(indiceEquipoParsed).getNombre());
         this.equipoSeleccionado = listaEquipos.get(indiceEquipoParsed);

@@ -3,19 +3,3 @@
 	README.md,8\e\8ec9a00bfd09b3190ac6b22251dbb1aa95a0579d
 P
  src/main/java/clases/Equipo.java,8\3\83e8233a958d06803b1eb699e25239932baa0ce8
-Z
-*src/main/java/enumeraciones/Resultado.java,f\0\f05e5fe798abaecea7a818d1c142a64a653d3adb
-Q
-!src/main/java/clases/Jugador.java,b\a\ba4c48a62527601810671a26b1a3d135ccad5568
-O
-src/main/java/clases/Llave.java,d\4\d428eff5df60dc7cd6bc912a797cdd09c25bb474
-Q
-!src/main/java/clases/Partido.java,6\d\6db864a563620fa46993b647144ae2c70fe5c368
-7
-pom.xml,4\4\442292b8a7efeabbe4cc176709b833b1792140ec
-O
-src/main/java/clases/Ronda.java,a\5\a51d6675a30ceebf7b26a8e36d1b572c23c76644
-_
-/src/main/java/interfazUtiles/InterfazUtils.java,3\0\30edeba591f8e6799b2555840c0f75d57a5c5faa
-G
-src/main/java/Main.java,e\4\e44a8606ce010ad9b89aafdfcee2ab49afbf6d10

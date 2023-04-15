@@ -15,7 +15,7 @@
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/f/0/f05e5fe798abaecea7a818d1c142a64a653d3adb" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/clases/Jugador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/clases/Jugador.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,6 +95,8 @@
       <workItem from="1681394864073" duration="4069000" />
       <workItem from="1681419389197" duration="550000" />
       <workItem from="1681487269219" duration="873000" />
+      <workItem from="1681497433479" duration="77000" />
+      <workItem from="1681578276415" duration="291000" />
     </task>
     <servers />
   </component>
