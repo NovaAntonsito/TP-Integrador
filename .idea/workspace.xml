@@ -5,15 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a8273e41-fc50-4437-b87c-6be9d75f9659" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/3/0/30edeba591f8e6799b2555840c0f75d57a5c5faa" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/4/4/442292b8a7efeabbe4cc176709b833b1792140ec" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/6/d/6db864a563620fa46993b647144ae2c70fe5c368" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/a/5/a51d6675a30ceebf7b26a8e36d1b572c23c76644" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/b/a/ba4c48a62527601810671a26b1a3d135ccad5568" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/d/4/d428eff5df60dc7cd6bc912a797cdd09c25bb474" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/e/4/e44a8606ce010ad9b89aafdfcee2ab49afbf6d10" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/f/0/f05e5fe798abaecea7a818d1c142a64a653d3adb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/clases/Jugador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/clases/Jugador.java" afterDir="false" />
     </list>
@@ -96,7 +87,9 @@
       <workItem from="1681419389197" duration="550000" />
       <workItem from="1681487269219" duration="873000" />
       <workItem from="1681497433479" duration="77000" />
-      <workItem from="1681578276415" duration="291000" />
+      <workItem from="1681578276415" duration="913000" />
+      <workItem from="1681589719707" duration="46000" />
+      <workItem from="1681692855497" duration="2557000" />
     </task>
     <servers />
   </component>
