@@ -29,6 +29,7 @@ public class InterfazUtils {
                 "6. Crear rondas\n" +
                 "7. Jugar torneo\n" +
                 "8. Mostrar resultado del torneo\n" +
+                "9. Guardar los datos del ganador en la DB\n" +
                 "0. Salir","Opciones",JOptionPane.INFORMATION_MESSAGE);
     }
 }

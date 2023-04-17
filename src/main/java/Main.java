@@ -3,9 +3,12 @@ import clases.Equipo;
 import clases.Jugador;
 import clases.Llave;
 import clases.Ronda;
+import configDB.DBConnection;
+import configDB.DBConsultas;
 import interfazUtiles.InterfazUtils;
 
 import javax.swing.*;
+import java.sql.Connection;
 import java.util.ArrayList;
 
 public class Main {
@@ -51,6 +54,9 @@ public class Main {
                     break;
                 case "8":
                     resultadoDelTorneo(jugador);
+                    break;
+                case "9":
+                    pantallaDB(ronda);
                     break;
                 case "0":
                     JOptionPane.showMessageDialog(null, "Saliendo", "Salida", JOptionPane.CLOSED_OPTION);
@@ -159,6 +165,24 @@ public class Main {
         JOptionPane.showMessageDialog(null, "Has conseguido " + jugador.getPuntaje()
                         + " por elegir al equipo: " + jugador.getEquipoSeleccionado().getNombre(), "Nombre",
                 JOptionPane.INFORMATION_MESSAGE);
+    }
+
+    public static void pantallaDB(Ronda winner){
+        DBConnection dbConnection = new DBConnection();
+        Connection conexionDB = dbConnection.crearConexion();
+        int opcion = JOptionPane.showConfirmDialog(null,
+                "¿Desea guardar los datos en la base de datos?",
+                "Guardar datos", JOptionPane.YES_NO_OPTION);
+
+        if (opcion == JOptionPane.YES_OPTION) {
+            DBConsultas consultas = new DBConsultas(conexionDB);
+            consultas.queryGenTabla();
+            consultas.guardarDatos(winner.getGanadorRonda().getNombre().toString(), winner.getGanadorRonda().getCantGolesEnElTorneo());
+            dbConnection.closeConexion();
+        } else {
+            dbConnection.closeConexion();
+            System.out.println("El usuario ha elegido no guardar los datos en la base de datos.");
+        }
     }
 
 }

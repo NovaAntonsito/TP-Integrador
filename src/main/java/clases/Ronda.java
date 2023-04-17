@@ -9,6 +9,8 @@ public class Ronda {
     private int cantidadDeEquiposEnRonda;
     private int cantidadDeEquiposEnLLave;
 
+    private Equipo ganadorRonda;
+
     public Ronda() {
     }
 
@@ -106,5 +108,15 @@ public class Ronda {
                 equipo.getNombre(),
                 "Ganador del torneo",JOptionPane.INFORMATION_MESSAGE);
 
+        this.ganadorRonda = equipo;
+
+    }
+
+    public Equipo getGanadorRonda() {
+        return ganadorRonda;
+    }
+
+    public void setGanadorRonda(Equipo ganadorRonda) {
+        this.ganadorRonda = ganadorRonda;
     }
 }
