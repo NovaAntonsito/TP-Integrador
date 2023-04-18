@@ -1,4 +1,4 @@
-package enumeraciones;
+package integrador.enumeraciones;
 
 public enum Resultado {
 

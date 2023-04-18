@@ -1,7 +1,7 @@
-package clases;
+package integrador.clases;
 
 
-import enumeraciones.Resultado;
+import integrador.enumeraciones.Resultado;
 
 import javax.swing.*;
 

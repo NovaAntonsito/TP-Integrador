@@ -1,6 +1,6 @@
-package clases;
+package integrador.clases;
 
-import enumeraciones.Resultado;
+import integrador.enumeraciones.Resultado;
 
 public class Equipo {
 

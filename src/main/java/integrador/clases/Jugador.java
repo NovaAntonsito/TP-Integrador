@@ -1,4 +1,4 @@
-package clases;
+package integrador.clases;
 
 import javax.swing.*;
 import java.util.List;
