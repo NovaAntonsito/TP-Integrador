@@ -1,0 +1,29 @@
+
+t
+java:S2293["YReplace the type specification in this constructor call with the diamond operator ("<>").(Ğ¹·Îûÿÿÿÿ
+†
+java:S1319X"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(¤ÀÌî
+„
+java:S1319X"nThe type of "listaDeEquipos" should be an interface such as "List" rather than the implementation "ArrayList".(¤ÀÌî
+„
+java:S1319c"nThe type of "listaDeEquipos" should be an interface such as "List" rather than the implementation "ArrayList".(Õñáå
+…
+java:S1319‡"nThe type of "listaDeEquipos" should be an interface such as "List" rather than the implementation "ArrayList".(ğĞø±
+Š
+java:S1319"nThe type of "listaDeEquipos" should be an interface such as "List" rather than the implementation "ArrayList".(÷ıêêşÿÿÿÿ
+Š
+java:S1319–"nThe type of "listaDeEquipos" should be an interface such as "List" rather than the implementation "ArrayList".(˜çè¶şÿÿÿÿ
+…
+java:S1319µ"nThe type of "listaDeEquipos" should be an interface such as "List" rather than the implementation "ArrayList".(ší“À
+m
+java:S2259:"R"NullPointerException" will be thrown when invoking method "resultadoDelTorneo()".(ì¿Ûıÿÿÿÿ
+Y
+java:S2259@"CA "NullPointerException" could be thrown; "ronda" is nullable here.(Û¢¤å
+i
+java:S2259("N"NullPointerException" will be thrown when invoking method "agregarEquipos()".(Çç³«üÿÿÿÿ
+a
+java:S22597"K"NullPointerException" will be thrown when invoking method "jugarTorneo()".(ÒìÜå
+B
+java:S1481",Remove this unused "ganador" local variable.(ÛĞ•ø
+I
+java:S6126Ä"2Replace this String concatenation with Text block.(Ş›‰å

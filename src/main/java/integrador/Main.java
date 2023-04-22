@@ -4,6 +4,7 @@ import integrador.clases.Equipo;
 import integrador.clases.Jugador;
 import integrador.clases.Llave;
 import integrador.clases.Ronda;
+import integrador.database.BaseDeDatos;
 
 import javax.swing.*;
 import java.util.ArrayList;
@@ -24,12 +25,13 @@ public class Main {
         Llave llaveDerecha = null;
         Llave llaveIzquierda = null;
         Ronda ronda = null;
-        String opcion="";
+        Equipo ganador=null;
+        String opcion = "";
         do {
             // Se utiliza la función opciones() para obtener el menu con las opciones disponibles para el usuario.
             opciones();
-            opcion=JOptionPane.showInputDialog(null,"Ingrese el numero de la opcion que desea",
-                    "Seleccionar opcion",JOptionPane.INFORMATION_MESSAGE);
+            opcion = JOptionPane.showInputDialog(null, "Ingrese el numero de la opcion que desea",
+                    "Seleccionar opcion", JOptionPane.INFORMATION_MESSAGE);
             switch (opcion) {
                 case "1":
                     listaDeEquipos = crearListaDeEquipos(listaDeEquipos);
@@ -55,12 +57,24 @@ public class Main {
                 case "8":
                     resultadoDelTorneo(jugador);
                     break;
+                case "9":
+                    BaseDeDatos.crearConexion();
+                    break;
+                case "10":
+                    BaseDeDatos.persistirInformacion(listaDeEquipos,ronda.getGanadorDelTorneo());
+                    break;
+                case "11":
+                    BaseDeDatos.leerRegistros();
+                    break;
+                case "12":
+                    BaseDeDatos.closeConexion();
+                    break;
                 case "0":
                     JOptionPane.showMessageDialog(null, "Saliendo", "Salida", JOptionPane.CLOSED_OPTION);
                     salir = false;
                     break;
                 default:
-                    JOptionPane.showMessageDialog(null,"Ingreso invalido");
+                    JOptionPane.showMessageDialog(null, "Ingreso invalido");
             }
 
         } while (salir);
@@ -76,17 +90,17 @@ public class Main {
         if (listaDeEquipos == null) {
             return new ArrayList<Equipo>();
         } else {
-            JOptionPane.showMessageDialog(null,"Ya hay una lista creada","Informacion",JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Ya hay una lista creada", "Informacion", JOptionPane.INFORMATION_MESSAGE);
             return listaDeEquipos;
         }
 
     }
 
     public static void agregarEquipos(ArrayList<Equipo> listaDeEquipos) {
-        if(!
-                listaDeEquipos.isEmpty()){
-            String cargaDeEquipos=JOptionPane.showInputDialog(null,"Ya hay una lista cargada\n ¿Desea cargarla nuevamente? SI | NO","Lista Cargada",JOptionPane.INFORMATION_MESSAGE);
-            if(cargaDeEquipos.equalsIgnoreCase("SI")){
+        if (!
+                listaDeEquipos.isEmpty()) {
+            String cargaDeEquipos = JOptionPane.showInputDialog(null, "Ya hay una lista cargada\n ¿Desea cargarla nuevamente? SI | NO", "Lista Cargada", JOptionPane.INFORMATION_MESSAGE);
+            if (cargaDeEquipos.equalsIgnoreCase("SI")) {
                 listaDeEquipos.clear();
             }
         }
@@ -163,21 +177,23 @@ public class Main {
                         + " por elegir al equipo: " + jugador.getEquipoSeleccionado().getNombre(), "Nombre",
                 JOptionPane.INFORMATION_MESSAGE);
     }
-    public static void cargarEquipoManualmente(ArrayList<Equipo> listaDeEquipos){
-        String nombreEquipo=null;
+
+    public static void cargarEquipoManualmente(ArrayList<Equipo> listaDeEquipos) {
+        String nombreEquipo = null;
         for (int i = 0; i < 8; i++) {
-            do{
+            do {
                 nombreEquipo = JOptionPane.showInputDialog(null, "Ingrese el nombre del equipo",
                         "Carga de equipos", JOptionPane.INFORMATION_MESSAGE);
-                if(nombreEquipo==null || nombreEquipo.equals("")){
-                    JOptionPane.showMessageDialog(null,"Ingrese un valor en la casilla","Error",JOptionPane.ERROR_MESSAGE);
+                if (nombreEquipo == null || nombreEquipo.equals("")) {
+                    JOptionPane.showMessageDialog(null, "Ingrese un valor en la casilla", "Error", JOptionPane.ERROR_MESSAGE);
                 }
-            }while(nombreEquipo==null || nombreEquipo.equals(""));
+            } while (nombreEquipo == null || nombreEquipo.equals(""));
             listaDeEquipos.add(new Equipo(nombreEquipo));
         }
     }
-    public static void opciones(){
-         JOptionPane.showMessageDialog(null,"Seleccione una opcion:\n" +
+
+    public static void opciones() {
+        JOptionPane.showMessageDialog(null, "Seleccione una opcion:\n" +
                 "1. Crear lista de equipos\n" +
                 "2. Cargar los equipos\n" +
                 "3. Elegir equipo\n" +
@@ -186,7 +202,12 @@ public class Main {
                 "6. Crear rondas\n" +
                 "7. Jugar torneo\n" +
                 "8. Mostrar resultado del torneo\n" +
-                "0. Salir","Opciones",JOptionPane.INFORMATION_MESSAGE);
+                "9. Crear conexion a Base de Datos\n" +
+                "10. Persistir Informacion en la Base de Datos\n" +
+                "11. Leer registros\n"+
+                "12. Cerrar conexion a Base de Datos\n"+
+                "0. Salir", "Opciones", JOptionPane.INFORMATION_MESSAGE);
     }
+
 
 }

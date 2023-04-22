@@ -1,0 +1,27 @@
+
+c
+java:S11928"MDefine a constant instead of duplicating this literal "Persistencia" 5 times.(–ü‡
+†
+java:S13193"pThe type of "equiposDelTorneo" should be an interface such as "List" rather than the implementation "ArrayList".(µÛıš
+2
+java:S1643l"Use a StringBuilder instead.(·»µ…
+u
+java:S1104"`Make conexionABaseDeDatos a static final constant or non-public and provide accessors if needed.(À/
+O
+java:S1444":Make this "public static conexionABaseDeDatos" field final(À/
+e
+java:S2095W"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(†úúá
+l
+java:S2095L"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(Èä¢é8ÈğÿĞú0
+]
+java:S2095e"GUse try-with-resources or close this "Statement" in a "finally" clause.(¾Ãşƒ
+]
+java:S20956"GUse try-with-resources or close this "Statement" in a "finally" clause.(¾Ãşƒ
+S
+java:S2589("8Remove this expression which always evaluates to "false"(‚Í×¼ÿÿÿÿÿ
+—
+java:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ŠŒ
+3
+java:S1118"Hide this public constructor.(ŠŒ
+Q
+java:S6437"6Revoke and change this password, as it is compromised.(ğ´Áåùÿÿÿÿ

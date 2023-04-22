@@ -8,7 +8,7 @@ public class Ronda {
     private int nroDeRonda;
     private int cantidadDeEquiposEnRonda;
     private int cantidadDeEquiposEnLLave;
-
+    private Equipo ganadorDelTorneo;
     public Ronda() {
     }
 
@@ -34,6 +34,14 @@ public class Ronda {
 
     public void setCantidadDeEquiposEnLLave(int cantidadDeEquiposEnLLave) {
         this.cantidadDeEquiposEnLLave = cantidadDeEquiposEnLLave;
+    }
+
+    public Equipo getGanadorDelTorneo() {
+        return ganadorDelTorneo;
+    }
+
+    public void setGanadorDelTorneo(Equipo ganadorDelTorneo) {
+        this.ganadorDelTorneo = ganadorDelTorneo;
     }
 
     public void cuartosDeFinal(Llave llaveIzquierda, Llave llaveDerecha){
@@ -99,11 +107,11 @@ public class Ronda {
         // Instancio un objeto de partido para usar su metodo
         Partido partido=new Partido();
         // Simulamos el partido final
-        Equipo equipo=partido.simularPartido(llaveDerecha.getEquiposDeLaLlave().get(0),
+        this.ganadorDelTorneo=partido.simularPartido(llaveDerecha.getEquiposDeLaLlave().get(0),
                 llaveIzquierda.getEquiposDeLaLlave().get(0));
         // Muestro un mensaje demostrando quien gano el torneo
         JOptionPane.showMessageDialog(null,"El ganador del torneo es: "+
-                equipo.getNombre(),
+                ganadorDelTorneo.getNombre(),
                 "Ganador del torneo",JOptionPane.INFORMATION_MESSAGE);
 
     }

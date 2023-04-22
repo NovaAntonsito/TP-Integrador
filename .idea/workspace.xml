@@ -5,17 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a8273e41-fc50-4437-b87c-6be9d75f9659" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/integrador/database/BaseDeDatos.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/8/3/83e8233a958d06803b1eb699e25239932baa0ce8" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UMLeditable.mdj" beforeDir="false" afterPath="$PROJECT_DIR$/UMLeditable.mdj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/integrador/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/clases/Equipo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/integrador/clases/Equipo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/clases/Jugador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/integrador/clases/Jugador.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/clases/Llave.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/integrador/clases/Llave.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/clases/Partido.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/integrador/clases/Partido.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/clases/Ronda.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/integrador/clases/Ronda.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/enumeraciones/Resultado.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/integrador/enumeraciones/Resultado.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/interfazUtiles/InterfazUtils.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/integrador/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/integrador/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/integrador/clases/Ronda.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/integrador/clases/Ronda.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,9 +49,15 @@
     &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
     &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
+    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.fonts.default&quot;
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="integrador.clases" />
+      <recent name="integrador" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="RunTorneo" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="integrador.Main" />
@@ -100,7 +101,12 @@
       <workItem from="1681589719707" duration="46000" />
       <workItem from="1681692855497" duration="2666000" />
       <workItem from="1681743940603" duration="181000" />
-      <workItem from="1681816823611" duration="302000" />
+      <workItem from="1681816823611" duration="482000" />
+      <workItem from="1681834425640" duration="63000" />
+      <workItem from="1682010220559" duration="598000" />
+      <workItem from="1682178777789" duration="4444000" />
+      <workItem from="1682184793324" duration="920000" />
+      <workItem from="1682185813374" duration="715000" />
     </task>
     <servers />
   </component>
@@ -127,5 +133,9 @@
         </breakpoint>
       </breakpoints>
     </breakpoint-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>
